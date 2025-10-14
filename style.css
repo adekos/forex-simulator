@@ -1,0 +1,175 @@
+/* --- FONTE E TEMA --- */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto:wght@400;500&display=swap');
+
+:root {
+  --bg-color: #131722;
+  --primary-text: #d1d4dc;
+  --secondary-text: #9b9ea6;
+  --panel-color: #1e222d;
+  --border-color: #494949;
+  --buy-color: #26a69a;
+  --buy-hover: #219185;
+  --sell-color: #ef5350;
+  --sell-hover: #d14845;
+  --accent-color: #2962ff;
+  --accent-hover: #2151cc;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background-color: var(--bg-color);
+  color: var(--primary-text);
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 16px;
+}
+
+h1 {
+  color: #ffffff;
+  font-weight: 500;
+  margin: 8px 0 16px;
+  text-align: center;
+}
+
+/* --- CONTAINER PRINCIPAL --- */
+.app-container {
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: var(--panel-color);
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+/* --- ABAS --- */
+.tabs {
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px solid var(--border-color);
+}
+.tab-btn {
+  background: transparent;
+  color: var(--primary-text);
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-weight: 500;
+}
+.tab-btn.active {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* --- GRÁFICO --- */
+.chart-responsive {
+  width: 100%;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  /* altura mínima para telas pequenas */
+  min-height: 300px;
+}
+
+/* --- PAINEL DE CONTROLE --- */
+#controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+#controls button {
+  padding: 12px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: 'Roboto', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  color: #ffffff;
+  flex: 1 1 180px;
+  min-width: 150px;
+}
+#controls button:active { transform: scale(0.98); }
+#controls button:disabled { cursor: not-allowed; background-color: #333; opacity: 0.6; }
+
+#start-btn { background-color: var(--accent-color); }
+#start-btn:hover:not(:disabled) { background-color: var(--accent-hover); }
+#buy-btn { background-color: var(--buy-color); }
+#buy-btn:hover:not(:disabled) { background-color: var(--buy-hover); }
+#sell-btn { background-color: var(--sell-color); }
+#sell-btn:hover:not(:disabled) { background-color: var(--sell-hover); }
+#close-btn { background-color: #555; }
+#close-btn:hover:not(:disabled) { background-color: #666; }
+#restart-btn { background-color: #777; }
+#restart-btn:hover:not(:disabled) { background-color: #888; }
+
+/* --- PAINEL DE STATUS --- */
+#status {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  width: 100%;
+  background-color: var(--bg-color);
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  text-align: center;
+}
+#status p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--secondary-text);
+}
+#status span {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 4px;
+  font-family: 'Roboto Mono', monospace;
+  color: var(--primary-text);
+}
+
+.profit { color: var(--buy-color) !important; }
+.loss { color: var(--sell-color) !important; }
+
+/* --- TABELAS --- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #0f1320;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  overflow: hidden;
+}
+th, td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 14px;
+}
+thead th {
+  background: #0b0f19;
+  color: var(--secondary-text);
+  text-align: left;
+}
+td:last-child, th:last-child { text-align: right; }
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 1000px) {
+  #status { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 640px) {
+  #status { grid-template-columns: repeat(2, 1fr); }
+  .tab-btn { flex: 1 1 auto; text-align: center; }
+}
+@media (max-width: 420px) {
+  #status { grid-template-columns: 1fr; }
+}
