@@ -16,7 +16,12 @@
     </div>
 
     <div class="tab-content active" id="tab-dashboard">
-      <!-- BOTÕES DE CONTROLE MOVEM-SE PARA CIMA -->
+      <!-- MODIFICAÇÃO: Gráfico movido para cima dos botões -->
+      <div id="chart-container" class="chart-responsive">
+        <!-- Gráfico -->
+      </div>
+
+      <!-- BOTÕES DE CONTROLE -->
       <div id="controls">
         <button id="start-btn">Iniciar Simulação</button>
         <button id="buy-btn" disabled>Comprar (BUY)</button>
@@ -25,11 +30,7 @@
         <button id="restart-btn">Recomeçar</button>
       </div>
 
-      <div id="chart-container" class="chart-responsive">
-        <!-- Gráfico -->
-      </div>
-
-      <!-- PAINEL DE STATUS MOVE-SE PARA BAIXO -->
+      <!-- PAINEL DE STATUS -->
       <div id="status">
         <p>Saldo: <span id="balance">10000.00</span></p>
         <p>Lucro Acumulado: <span id="total-profit">0.00</span></p>
