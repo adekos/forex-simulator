@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no, minimum-scale=1, maximum-scale=1" />
   <title>Simulador Forex</title>
 
   <!-- PWA: Manifesto e ícones -->
@@ -27,24 +27,26 @@
 
     <!-- Painel principal -->
     <div class="tab-content active" id="tab-dashboard">
-      <div id="chart-container" class="chart-responsive">
-        <!-- Gráfico renderiza aqui -->
-      </div>
-
-      <div id="status">
-        <p>Saldo: <span id="balance">10000.00</span></p>
-        <p>Lucro Acumulado: <span id="total-profit">0.00</span></p>
-        <p>Operação Aberta: <span id="current-trade">Nenhuma</span></p>
-        <p>P/L Flutuante: <span id="floating-pl">0.00</span></p>
-        <p>Equity: <span id="equity">10000.00</span></p>
-      </div>
-
+      <!-- BOTÕES DE CONTROLE MOVEM-SE PARA CIMA -->
       <div id="controls">
         <button id="start-btn">Iniciar Simulação</button>
         <button id="buy-btn" disabled>Comprar (BUY)</button>
         <button id="sell-btn" disabled>Vender (SELL)</button>
         <button id="close-btn" disabled>Fechar Ordem</button>
         <button id="restart-btn">Recomeçar</button>
+      </div>
+
+      <div id="chart-container" class="chart-responsive">
+        <!-- Gráfico renderiza aqui -->
+      </div>
+
+      <!-- PAINEL DE STATUS MOVE-SE PARA BAIXO -->
+      <div id="status">
+        <p>Saldo: <span id="balance">10000.00</span></p>
+        <p>Lucro Acumulado: <span id="total-profit">0.00</span></p>
+        <p>Operação Aberta: <span id="current-trade">Nenhuma</span></p>
+        <p>P/L Flutuante: <span id="floating-pl">0.00</span></p>
+        <p>Equity: <span id="equity">10000.00</span></p>
       </div>
 
       <div id="recent-box">
